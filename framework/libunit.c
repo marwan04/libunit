@@ -6,13 +6,13 @@
 /*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:39:30 by alrfa3i           #+#    #+#             */
-/*   Updated: 2025/07/17 17:52:14 by alrfa3i          ###   ########.fr       */
+/*   Updated: 2025/07/18 18:26:24 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libunit.h"
+#include "libunit.h"
 
-void init_test(t_unit_test **list, char *name, int (*test_func)(void))
+void load_test(t_unit_test **list, char *name, int (*test_func)(void))
 {
 	t_unit_test *new;
 

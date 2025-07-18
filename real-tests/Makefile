@@ -2,7 +2,7 @@
 
 NAME = tester
 
-SRCS = main.c 00-launcher.c 01-basic-test.c
+SRCS = main.c 00-launcher.c 01-basic-test.c 02-empty-file.c
 OBJS = $(SRCS:.c=.o)
 
 INCLUDES = -I. -I../framework -I../libft

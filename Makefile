@@ -1,46 +1,42 @@
-# Compiler and Flags
-CC     := cc
-CFLAGS := -Wall -Wextra -Werror
+NAME        := unit_tests
+CC          := cc
+CFLAGS      := -Wall -Wextra -Werror -Ilibft -Iframework
 
-# Paths
-REAL_TESTS := real-tests
-FRAMEWORK  := framework
-LIBFT      := libft
+SRC_MAIN    := main.c
+SRC_REAL    := real-tests/00-launcher.c real-tests/01-basic-test.c real-tests/02-empty-file.c
+OBJ         := $(SRC_MAIN:.c=.o) $(SRC_REAL:.c=.o)
 
-# Source files
-MAIN    := main.c
-TEST_OBJS := $(REAL_TESTS)/00-launcher.o $(REAL_TESTS)/01-basic-test.o
+LIBFT_DIR   := libft
+LIBUNIT_DIR := framework
 
-# Libs
-LIBUNIT_A := $(FRAMEWORK)/libunit.a
-LIBFT_A   := $(LIBFT)/libft.a
+LIBFT_LIB   := $(LIBFT_DIR)/libft.a
+LIBUNIT_LIB := $(LIBUNIT_DIR)/libunit.a
 
-# Executable
-NAME := unit_tests
+.PHONY: all clean fclean re
 
-all : $(NAME)
-# Final link
-$(NAME): $(MAIN) $(TEST_OBJS) $(LIBUNIT_A) $(LIBFT_A)
-	$(CC) $(CFLAGS) -I$(REAL_TESTS) -I$(LIBFT) -o $@ $^
+all: $(LIBFT_LIB) $(LIBUNIT_LIB) $(NAME)
 
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBUNIT_LIB) $(LIBFT_LIB)
 
-# Optional: build libft and framework
-$(LIBFT_A):
-	make -C $(LIBFT)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(LIBUNIT_A):
-	make -C $(FRAMEWORK)
+$(LIBFT_LIB):
+	$(MAKE) -C $(LIBFT_DIR)
 
-# Clean rules
+$(LIBUNIT_LIB):
+	$(MAKE) -C $(LIBUNIT_DIR)
+
 clean:
-	rm -f $(TEST_OBJS)
-	make -C $(LIBFT) fclean
-	make -C $(FRAMEWORK) fclean
+	rm -f $(OBJ)
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(LIBUNIT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(LIBUNIT_DIR) fclean
 
 re: fclean all
-
-.PHONY: all clean fclean re
 

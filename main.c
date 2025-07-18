@@ -6,11 +6,10 @@
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 21:38:55 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 22:35:21 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/18 23:22:07 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include	"framework/libunit.h"
 #include	"real-tests/tests.h"
 int	main(void)

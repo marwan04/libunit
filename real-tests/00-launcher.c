@@ -6,7 +6,7 @@
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 21:35:40 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 00:12:26 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/19 00:14:27 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ int	launcher(void)
 
 	load_test(&tests,"basic text", &basic_line_test);
 	load_test(&tests,"empty file test", &empty_file_test);
-	load_test(&tests,"multiple_lines test", &);
 	return (launch_tests(&tests));
 }

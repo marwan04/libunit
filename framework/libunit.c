@@ -6,7 +6,7 @@
 /*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:39:30 by alrfa3i           #+#    #+#             */
-/*   Updated: 2025/07/18 18:26:24 by alrfa3i          ###   ########.fr       */
+/*   Updated: 2025/07/19 19:26:12 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,29 @@ void	load_test(t_unit_test **list, char *name, int (*test_func)(void))
 
 static void	print_status(char *func, char *name, int status)
 {
-	printf("%s: %s : ", func, name);
+	ft_putstr_fd(func, 1);
+	ft_putstr_fd(": ", 1);
+	ft_putstr_fd(name, 1);
+	ft_putstr_fd(" : ", 1);
 	if (WIFEXITED(status))
 	{
 		if (WEXITSTATUS(status) == 0)
-			printf("[OK]\n");
+			ft_putendl_fd("[OK]", 1);
 		else
-			printf("[KO]\n");
+			ft_putendl_fd("[KO]", 1);
 	}
 	else if (WIFSIGNALED(status))
 	{
 		if (WTERMSIG(status) == SIGSEGV)
-			printf("[SEGV]\n");
+			ft_putendl_fd("[SEGV]", 1);
 		else if (WTERMSIG(status) == SIGBUS)
-			printf("[BUS]\n");
+			ft_putendl_fd("[BUS]", 1);
 		else
-			printf("[SIG %d]\n", WTERMSIG(status));
+		{
+			ft_putstr_fd("[SIG ", 1);
+			ft_putnbr_fd(WTERMSIG(status), 1);
+			ft_putendl_fd("]", 1);
+		}
 	}
 }
 
@@ -81,7 +88,10 @@ int	launch_tests(t_unit_test **list)
 		}
 		cur = cur->next;
 	}
-	printf("%d/%d tests checked\n", success, total);
+	ft_putnbr_fd(success, 1);
+	ft_putchar_fd('/', 1);
+	ft_putnbr_fd(total, 1);
+	ft_putendl_fd(" tests checked", 1);
 	if (success == total)
 		return (0);
 	return (-1);

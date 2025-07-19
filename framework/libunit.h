@@ -6,7 +6,7 @@
 /*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:40:40 by alrfa3i           #+#    #+#             */
-/*   Updated: 2025/07/18 18:26:28 by alrfa3i          ###   ########.fr       */
+/*   Updated: 2025/07/19 19:19:37 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 typedef struct s_unit_test
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 21:35:40 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:44:08 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/19 20:13:59 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	launcher(void)
 {
 	t_unit_test	*tests;
+	int			result;
 
 	tests = NULL;
 	load_test(&tests, "ft_GNL basic text", &basic_line_test);
@@ -33,5 +34,7 @@ int	launcher(void)
 	load_test(&tests, "ft_isalpha basic", &test_isalpha_basic);
 	load_test(&tests, "ft_bzero basic tests", &test_bzero_basic);
 	load_test(&tests, "ft_bzero zero len tests", &test_bzero_zero_len);
-	return (launch_tests(&tests));
+	result = launch_tests(&tests);
+	cleanup_tests(tests);
+	return (result);
 }

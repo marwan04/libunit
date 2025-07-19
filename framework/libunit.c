@@ -6,7 +6,7 @@
 /*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:39:30 by alrfa3i           #+#    #+#             */
-/*   Updated: 2025/07/19 19:26:12 by alrfa3i          ###   ########.fr       */
+/*   Updated: 2025/07/19 20:17:08 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	launch_tests(t_unit_test **list)
 	int			success;
 	pid_t		pid;
 	int			status;
+	int			result;
 
 	cur = *list;
 	total = 0;
@@ -77,7 +78,11 @@ int	launch_tests(t_unit_test **list)
 	{
 		pid = fork();
 		if (pid == 0)
-			exit(cur->test_func());
+		{
+			result = cur->test_func();
+			cleanup_tests(*list);
+			exit(result);
+		}
 		else if (pid > 0)
 		{
 			wait(&status);

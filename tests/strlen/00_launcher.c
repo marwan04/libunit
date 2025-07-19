@@ -14,5 +14,6 @@ int	strlen_launcher(void)
 	load_test(&list, "KO test", &ko_test);
 	load_test(&list, "SEGV test", &segv_test);
 	load_test(&list, "BUS test", &bus_test);
+	cleanup_tests(list);
 	return (launch_tests(&list));
 }

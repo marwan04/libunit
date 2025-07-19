@@ -6,7 +6,7 @@
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 21:35:40 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:41:29 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/19 18:44:08 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int launcher(void) {
   t_unit_test *tests = NULL;
 
-  load_test(&tests, "basic text", &basic_line_test);
-  load_test(&tests, "empty file test", &empty_file_test);
+  load_test(&tests, "ft_GNL basic text", &basic_line_test);
+  load_test(&tests, "ft_GNL empty file test", &empty_file_test);
   load_test(&tests, "ft_strcpy basic_test", &test_strcpy_basic);
   load_test(&tests, "ft_strcpy empty_test", &test_strcpy_empty);
   load_test(&tests, "ft_strncmp_equal_test", &test_strncmp_equal);

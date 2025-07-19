@@ -3,7 +3,12 @@ CC          := cc
 CFLAGS      := -Wall -Wextra -Werror -Ilibft -Iframework
 
 SRC_MAIN    := main.c
-SRC_REAL    := real-tests/00-launcher.c real-tests/01-basic-test.c real-tests/02-empty-file.c
+SRC_REAL    := real-tests/00_launcher.c real-tests/01_basic_test.c real-tests/02_empty_file.c \
+	       real-tests/03_strcpy_basic.c real-tests/04_strcpy_empty.c \
+	       real-tests/05_ft_strncmp_equal.c real-tests/06_ft_strncmp_different.c \
+	       real-tests/07_ft_atoi_basic.c real-tests/08_ft_atoi_negative.c real-tests/09_ft_atoi_invalid.c \
+
+
 OBJ         := $(SRC_MAIN:.c=.o) $(SRC_REAL:.c=.o)
 
 LIBFT_DIR   := libft

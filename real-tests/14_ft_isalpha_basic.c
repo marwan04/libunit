@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   14_ft_isalpha_basic.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:35:25 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:35:50 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "tests.h"
 
-int	main(void)
+int	test_isalpha_basic(void)
 {
-	return (strlen_launcher());
+	if (ft_isalpha('A') && ft_isalpha('z') && !ft_isalpha('1')
+		&& !ft_isalpha('@'))
+		return (0);
+	return (-1);
 }

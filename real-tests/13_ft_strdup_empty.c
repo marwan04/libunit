@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   13_ft_strdup_empty.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:30:31 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:57:51 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "tests.h"
 
-int	main(void)
+int	test_strdup_empty(void)
 {
-	return (strlen_launcher());
+	char	*dup;
+
+	dup = ft_strdup("");
+	if (dup && ft_strlen(dup) == 0)
+	{
+		free(dup);
+		return (0);
+	}
+	if (dup)
+		free(dup);
+	return (-1);
 }

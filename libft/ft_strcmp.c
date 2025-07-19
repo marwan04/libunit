@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:45:30 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:45:54 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "libft.h"
 
-int	main(void)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	return (strlen_launcher());
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

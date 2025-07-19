@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/18 21:38:55 by moe               #+#    #+#             */
+/*   Updated: 2025/07/18 23:22:07 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "framework/libunit.h"
+#include "real-tests/tests.h"
 
 int	main(void)
 {
-	return (strlen_launcher());
+	launcher();
+	return (0);
 }

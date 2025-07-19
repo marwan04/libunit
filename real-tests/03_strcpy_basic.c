@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_strcpy_basic.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 17:49:43 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:57:04 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "tests.h"
 
-int	main(void)
+int	test_strcpy_basic(void)
 {
-	return (strlen_launcher());
+	char	dest[20];
+
+	ft_strcpy(dest, "Hello");
+	if (ft_strcmp(dest, "Hello") == 0)
+		return (0);
+	return (-1);
 }

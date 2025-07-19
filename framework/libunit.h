@@ -13,21 +13,22 @@
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
+# include <signal.h>
+# include <stdio.h>
 # include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <signal.h>
-#include <stdio.h>
+# include <sys/wait.h>
+# include <unistd.h>
 
 typedef struct s_unit_test
 {
-	char *name;
-	int (*test_func)(void);
-	struct s_unit_test *next;
-}	t_unit_test;
+	char				*name;
+	int					(*test_func)(void);
+	struct s_unit_test	*next;
+}						t_unit_test;
 
-void	load_test(t_unit_test **list, char *name, int (*test_func)(void));
-int		launch_tests(t_unit_test **list);
-void	cleanup_tests(t_unit_test *list);
+void					load_test(t_unit_test **list, char *name,
+							int (*test_func)(void));
+int						launch_tests(t_unit_test **list);
+void					cleanup_tests(t_unit_test *list);
 
 #endif

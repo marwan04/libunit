@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   05_ft_strncmp_equal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:11:24 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:11:48 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "tests.h"
 
-int	main(void)
+int	test_strncmp_equal(void)
 {
-	return (strlen_launcher());
+	if (ft_strncmp("Hello", "Hello", 5) == 0)
+		return (0);
+	return (-1);
 }

@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   15_ft_bzero_basic.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 20:47:48 by moe               #+#    #+#             */
-/*   Updated: 2025/07/18 20:47:49 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:38:52 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 19:01:57 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	strlen_launcher(void);
+#include "tests.h"
 
-int	main(void)
+int	test_bzero_basic(void)
 {
-	return (strlen_launcher());
+	char	buffer[10];
+
+	ft_strcpy(buffer, "hello");
+	ft_bzero(buffer, 3);
+	if (buffer[0] == '\0' && buffer[1] == '\0' && buffer[2] == '\0'
+		&& buffer[3] == 'l')
+		return (0);
+	return (-1);
 }

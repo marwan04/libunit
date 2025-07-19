@@ -24,15 +24,12 @@ OBJ_REAL    := $(SRC_REAL:.c=.o)
 
 .PHONY: all real_tests dummy_tests clean fclean re
 
-# Default
 all: real_tests dummy_tests
 
-# Target to build and run real tests
 real_tests: $(LIBFT_LIB) $(LIBUNIT_LIB) $(OBJ_MAIN) $(OBJ_REAL)
 	@echo "Building real_tests..."
 	$(CC) $(CFLAGS) -o $(REAL_EXEC) $(OBJ_MAIN) $(OBJ_REAL) $(LIBUNIT_LIB) $(LIBFT_LIB)
 
-# Target to run the Makefile inside tests/ (for dummy_tests)
 dummy_tests:
 	@echo "Running dummy_tests..."
 	$(MAKE) -C tests
@@ -40,14 +37,12 @@ dummy_tests:
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Build Libs
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(LIBUNIT_LIB):
 	$(MAKE) -C $(LIBUNIT_DIR)
 
-# Cleaning
 clean:
 	rm -f $(OBJ_MAIN) $(OBJ_REAL)
 	$(MAKE) -C $(LIBFT_DIR) clean

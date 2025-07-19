@@ -6,19 +6,20 @@
 /*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:39:30 by alrfa3i           #+#    #+#             */
-/*   Updated: 2025/07/17 17:52:14 by alrfa3i          ###   ########.fr       */
+/*   Updated: 2025/07/18 18:26:24 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libunit.h"
+#include "libunit.h"
 
-void init_test(t_unit_test **list, char *name, int (*test_func)(void))
+void	load_test(t_unit_test **list, char *name, int (*test_func)(void))
 {
-	t_unit_test *new;
+	t_unit_test	*new;
+	t_unit_test	*temp;
 
 	new = malloc(sizeof(t_unit_test));
 	if (!new)
-		return;
+		return ;
 	new->name = name;
 	new->test_func = test_func;
 	new->next = NULL;
@@ -26,14 +27,14 @@ void init_test(t_unit_test **list, char *name, int (*test_func)(void))
 		*list = new;
 	else
 	{
-		t_unit_test *temp = *list;
+		temp = *list;
 		while (temp->next)
 			temp = temp->next;
 		temp->next = new;
 	}
 }
 
-static void print_status(char *func, char *name, int status)
+static void	print_status(char *func, char *name, int status)
 {
 	printf("%s: %s : ", func, name);
 	if (WIFEXITED(status))
@@ -54,13 +55,13 @@ static void print_status(char *func, char *name, int status)
 	}
 }
 
-int launch_tests(t_unit_test **list)
+int	launch_tests(t_unit_test **list)
 {
-	t_unit_test *cur;
-	int total;
-	int success;
-	pid_t pid;
-	int status;
+	t_unit_test	*cur;
+	int			total;
+	int			success;
+	pid_t		pid;
+	int			status;
 
 	cur = *list;
 	total = 0;
@@ -86,9 +87,10 @@ int launch_tests(t_unit_test **list)
 	return (-1);
 }
 
-void cleanup_tests(t_unit_test *list)
+void	cleanup_tests(t_unit_test *list)
 {
-	t_unit_test *tmp;
+	t_unit_test	*tmp;
+
 	while (list)
 	{
 		tmp = list;

@@ -1,15 +1,12 @@
-# **************************************************************************** #
-#                                  LIBUNIT TESTS                               #
-# **************************************************************************** #
-
 NAME    = unit_test
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror -I../framework
+CFLAGS  = -Wall -Wextra -Werror -I../framework -I../libft
 
-# Paths
 SRC_DIR = strlen
+LIBFT_DIR = ../libft
 
-# Source files
+LIBFT_A = $(LIBFT_DIR)/libft.a
+
 SRC     = ../framework/libunit.c \
           main.c \
           $(SRC_DIR)/00_launcher.c \
@@ -20,18 +17,23 @@ SRC     = ../framework/libunit.c \
 
 OBJ     = $(SRC:.c=.o)
 
-all: $(NAME)
+all: $(LIBFT_A) $(NAME)
+
+$(LIBFT_A):
+	@make -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -o $(NAME)
 
 test: all
 	./$(NAME)
 
 clean:
 	rm -f $(OBJ)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all

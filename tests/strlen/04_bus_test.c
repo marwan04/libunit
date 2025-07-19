@@ -1,9 +1,7 @@
-#include <string.h>
+#include <signal.h>
 
-int	bus_test(void)
+int bus_test(void)
 {
-	char	*p;
-
-	p = (char *)0xdeadbeef;
-	return (strlen(p));
+	raise(SIGBUS);
+	return (0);
 }

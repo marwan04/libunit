@@ -6,7 +6,7 @@
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 21:56:02 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:19:19 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/19 18:40:34 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,12 @@ int test_strncmp_equal(void);
 int test_atoi_basic(void);
 int test_atoi_invalid(void);
 int test_atoi_negative(void);
+int test_memset_zero_len(void);
+int test_memset_basic(void);
+int test_strdup_empty(void);
+int test_strdup_basic(void);
+int test_isalpha_basic(void);
+int test_bzero_zero_len(void);
+int test_bzero_basic(void);
 int launcher(void);
 #endif

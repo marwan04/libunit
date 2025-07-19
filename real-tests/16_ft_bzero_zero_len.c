@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_empty_file.c                                    :+:      :+:    :+:   */
+/*   16_ft_bzero_zero_len.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 23:44:02 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:42:54 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:39:18 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:39:56 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "tests.h"
 
-int empty_file_test(void) {
-  int fd;
-  char *line;
+int test_bzero_zero_len(void) {
+  char buffer[5] = "test";
+  ft_bzero(buffer, 0);
 
-  fd = open("real-tests/testfiles/empty.txt", O_RDONLY);
-  if (fd < 0) return (-1);
-  line = get_next_line(fd);
-  close(fd);
-  if (line == NULL) return (0);
-  free(line);
+  if (strcmp(buffer, "test") == 0) return (0);
   return (-1);
 }

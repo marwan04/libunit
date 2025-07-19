@@ -1,7 +1,9 @@
 #include <string.h>
 
-int bus_test(void)
+int	bus_test(void)
 {
-	char *p = (char *)0xdeadbeef;
+	char	*p;
+
+	p = (char *)0xdeadbeef;
 	return (strlen(p));
 }

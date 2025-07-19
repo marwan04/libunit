@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"framework/libunit.h"
-#include	"real-tests/tests.h"
+#include "framework/libunit.h"
+#include "real-tests/tests.h"
+
 int	main(void)
 {
 	launcher();
-	return(0);
+	return (0);
 }

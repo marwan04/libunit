@@ -12,9 +12,10 @@
 
 #include "tests.h"
 
-int test_isalpha_basic(void) {
-  if (ft_isalpha('A') && ft_isalpha('z') && !ft_isalpha('1') &&
-      !ft_isalpha('@'))
-    return (0);
-  return (-1);
+int	test_isalpha_basic(void)
+{
+	if (ft_isalpha('A') && ft_isalpha('z') && !ft_isalpha('1')
+		&& !ft_isalpha('@'))
+		return (0);
+	return (-1);
 }

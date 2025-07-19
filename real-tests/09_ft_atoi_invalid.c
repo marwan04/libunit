@@ -12,7 +12,9 @@
 
 #include "tests.h"
 
-int test_atoi_invalid(void) {
-  if (ft_atoi("abc") == 0) return (0);
-  return (-1);
+int	test_atoi_invalid(void)
+{
+	if (ft_atoi("abc") == 0)
+		return (0);
+	return (-1);
 }

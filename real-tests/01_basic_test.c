@@ -9,18 +9,20 @@
 /*   Updated: 2025/07/18 23:36:31 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include	"tests.h"
+#include "tests.h"
 
-int basic_line_test(void) 
+int	basic_line_test(void)
 {
-	int fd = open("real-tests/testfiles/basic.txt", O_RDONLY);
-	printf("%d\n",fd);
+	int		fd;
+	char	*line;
+
+	fd = open("real-tests/testfiles/basic.txt", O_RDONLY);
+	printf("%d\n", fd);
 	if (fd < 0)
 		return (-1);
-	char *line = get_next_line(fd);
+	line = get_next_line(fd);
 	if (strcmp(line, "Hello World\n") == 0)
-		return 0;
+		return (0);
 	else
-		return 1;
+		return (1);
 }
-

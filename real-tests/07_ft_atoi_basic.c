@@ -12,7 +12,9 @@
 
 #include "tests.h"
 
-int test_atoi_basic(void) {
-  if (ft_atoi("42") == 42) return (0);
-  return (-1);
+int	test_atoi_basic(void)
+{
+	if (ft_atoi("42") == 42)
+		return (0);
+	return (-1);
 }

@@ -1,7 +1,9 @@
 #include <string.h>
 
-int segv_test(void)
+int	segv_test(void)
 {
-	char *s = NULL;
+	char	*s;
+
+	s = NULL;
 	return (strlen(s));
 }

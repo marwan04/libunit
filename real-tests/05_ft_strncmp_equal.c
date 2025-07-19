@@ -12,7 +12,9 @@
 
 #include "tests.h"
 
-int test_strncmp_equal(void) {
-  if (ft_strncmp("Hello", "Hello", 5) == 0) return (0);
-  return (-1);
+int	test_strncmp_equal(void)
+{
+	if (ft_strncmp("Hello", "Hello", 5) == 0)
+		return (0);
+	return (-1);
 }

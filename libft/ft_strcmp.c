@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_empty_file.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 23:44:02 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:42:54 by moe              ###   ########.fr       */
+/*   Created: 2025/07/19 18:45:30 by moe               #+#    #+#             */
+/*   Updated: 2025/07/19 18:45:54 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "tests.h"
 
-int	empty_file_test(void)
+#include "libft.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int		fd;
-	char	*line;
+	int	i;
 
-	fd = open("real-tests/testfiles/empty.txt", O_RDONLY);
-	if (fd < 0)
-		return (-1);
-	line = get_next_line(fd);
-	close(fd);
-	if (line == NULL)
-		return (0);
-	free(line);
-	return (-1);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

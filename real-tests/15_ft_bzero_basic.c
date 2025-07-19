@@ -6,19 +6,20 @@
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:38:52 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:39:12 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/19 19:01:57 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-int test_bzero_basic(void) {
-  char buffer[10] = "Hello";
-  ft_bzero(buffer, 3);
+int	test_bzero_basic(void)
+{
+	char	buffer[10];
 
-  // Check that first 3 bytes are zero
-  if (buffer[0] == '\0' && buffer[1] == '\0' && buffer[2] == '\0' &&
-      buffer[3] == 'l')
-    return (0);
-  return (-1);
+	ft_strcpy(buffer, "hello");
+	ft_bzero(buffer, 3);
+	if (buffer[0] == '\0' && buffer[1] == '\0' && buffer[2] == '\0'
+		&& buffer[3] == 'l')
+		return (0);
+	return (-1);
 }

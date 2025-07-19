@@ -11,7 +11,10 @@
 /* ************************************************************************** */
 
 #include "tests.h"
-int test_strncmp_different(void) {
-  if (ft_strncmp("Hello", "World", 5) != 0) return (0);
-  return (-1);
+
+int	test_strncmp_different(void)
+{
+	if (ft_strncmp("Hello", "World", 5) != 0)
+		return (0);
+	return (-1);
 }

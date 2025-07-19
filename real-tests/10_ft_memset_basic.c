@@ -6,16 +6,19 @@
 /*   By: moe <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:25:14 by moe               #+#    #+#             */
-/*   Updated: 2025/07/19 18:25:32 by moe              ###   ########.fr       */
+/*   Updated: 2025/07/19 18:57:21 by moe              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-int test_memset_basic(void) {
-  char buffer[10];
-  ft_memset(buffer, 'A', 5);
-  buffer[5] = '\0';
-  if (strcmp(buffer, "AAAAA") == 0) return (0);
-  return (-1);
+int	test_memset_basic(void)
+{
+	char	buffer[10];
+
+	ft_memset(buffer, 'A', 5);
+	buffer[5] = '\0';
+	if (ft_strcmp(buffer, "AAAAA") == 0)
+		return (0);
+	return (-1);
 }

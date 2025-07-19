@@ -6,7 +6,7 @@
 /*   By: alrfa3i <alrfa3i@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:39:30 by alrfa3i           #+#    #+#             */
-/*   Updated: 2025/07/19 20:17:08 by alrfa3i          ###   ########.fr       */
+/*   Updated: 2025/07/19 20:33:24 by alrfa3i          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,40 +64,35 @@ static void	print_status(char *func, char *name, int status)
 
 int	launch_tests(t_unit_test **list)
 {
-	t_unit_test	*cur;
-	int			total;
-	int			success;
-	pid_t		pid;
-	int			status;
-	int			result;
+	t_data	data;
 
-	cur = *list;
-	total = 0;
-	success = 0;
-	while (cur)
+	data.cur = *list;
+	data.total = 0;
+	data.success = 0;
+	while (data.cur)
 	{
-		pid = fork();
-		if (pid == 0)
+		data.pid = fork();
+		if (data.pid == 0)
 		{
-			result = cur->test_func();
+			data.result = data.cur->test_func();
 			cleanup_tests(*list);
-			exit(result);
+			exit(data.result);
 		}
-		else if (pid > 0)
+		else if (data.pid > 0)
 		{
-			wait(&status);
-			print_status("TEST", cur->name, status);
-			if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
-				success++;
-			total++;
+			wait(&data.status);
+			print_status("TEST", data.cur->name, data.status);
+			if (WIFEXITED(data.status) && WEXITSTATUS(data.status) == 0)
+				data.success++;
+			data.total++;
 		}
-		cur = cur->next;
+		data.cur = data.cur->next;
 	}
-	ft_putnbr_fd(success, 1);
+	ft_putnbr_fd(data.success, 1);
 	ft_putchar_fd('/', 1);
-	ft_putnbr_fd(total, 1);
+	ft_putnbr_fd(data.total, 1);
 	ft_putendl_fd(" tests checked", 1);
-	if (success == total)
+	if (data.success == data.total)
 		return (0);
 	return (-1);
 }
